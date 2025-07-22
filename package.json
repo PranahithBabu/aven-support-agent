@@ -9,8 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.10.0",
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.0",
+    "exa-js": "^1.8.23",
     "lucide-react": "^0.525.0",
     "next": "15.4.2",
+    "openai": "^5.10.2",
+    "pinecone-client": "^2.0.0",
+    "puppeteer": "^24.14.0",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },

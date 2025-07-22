@@ -91,22 +91,36 @@ export default function Home() {
     ]);
     setInput("");
     setIsTyping(true);
-    setTimeout(() => {
-      setIsTyping(false);
+    try {
+      const res = await fetch("/api/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: text }),
+      });
+      if (!res.ok) throw new Error("Failed to get response");
+      const data = await res.json();
       setMessages((msgs) => [
         ...msgs,
         {
           sender: "system",
-          text:
-            "Just a mock data: Aven offers a secured credit card with no annual fee. The card reports to all three credit bureaus and helps build your credit history. You can set your own credit limit based on your security deposit. Is there anything specific you'd like to know more about?",
+          text: data.answer || "Sorry, I couldn't find an answer to your question.",
           time: new Date(),
-          sources: [
-            { label: "Credit Card Features", url: "#" },
-            { label: "Credit Building Timeline", url: "#" },
-          ],
+          sources: data.sources || [],
         },
       ]);
-    }, 1200);
+    } catch (err) {
+      setMessages((msgs) => [
+        ...msgs,
+        {
+          sender: "system",
+          text: "Sorry, something went wrong. Please try again later.",
+          time: new Date(),
+          sources: [],
+        },
+      ]);
+    } finally {
+      setIsTyping(false);
+    }
   };
 
   const handleSubmit = (e) => {
