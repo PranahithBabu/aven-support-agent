@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: '.env.local' });
 const fs = require('fs');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const { PineconeClient } = require('pinecone-client');

@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: '.env.local' });
 const fs = require('fs');
 const Exa = require('exa-js').default;
 

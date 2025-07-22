@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { PineconeClient } from 'pinecone-client';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+require('dotenv').config({ path: '.env.local' });
 
 export async function POST(req) {
   const { query } = await req.json();
