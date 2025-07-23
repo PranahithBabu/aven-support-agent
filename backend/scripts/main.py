@@ -75,8 +75,8 @@ def ask_groq_llm(prompt):
         response.raise_for_status()
         return response.json()["choices"][0]["message"]["content"]
     except Exception as e:
-        print("❌ Groq error:", e)
-        print("📨 Raw response:", response.text)
+        print("LLM error:", e)
+        print("Raw response:", response.text)
         return "Sorry, I couldn't get a response from the AI."
 
 # Querying the LLM for the answer
