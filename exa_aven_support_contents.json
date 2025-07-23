@@ -1,5 +1,5 @@
 {
-  "requestId": "fde7e11a32c48578d7f0043127e40585",
+  "requestId": "7dbb2431c03efe8f79d2018884779c7b",
   "results": [
     {
       "id": "aven.com/support",
@@ -29,14 +29,6 @@
           "favicon": "https://www.aven.com/favicon.ico"
         },
         {
-          "id": "https://apps.apple.com/us/app/aven-card/id1541705487?itscg=30200&itsct=apps_box",
-          "title": "",
-          "url": "https://apps.apple.com/us/app/aven-card/id1541705487?itscg=30200&itsct=apps_box",
-          "publishedDate": "",
-          "author": "",
-          "text": "## iPhone Screenshots\n\nAven is the world’s first credit card that unlocks your home equity. Save time, effort, and money, all right from your phone. Get low rates with your home. Decision in minutes. 100% online.\n\nThe Aven app is the EASIEST and most SECURE way to manage your Aven Card. Using TouchID, or FaceID, you can instantly check your card balance, transaction history, pay bills, view payment activity, set up notifications, set up security — and more.\n\nOther banks have used access/debit cards as a means of withdrawing money from a home equity line, Aven’s card is unique in that the credit card is the primary source of funds and function. It is the first credit card backed by home equity to publicly launch into the market.\n\nThe Aven Card is issued by Coastal Community Bank, pursuant to a license from Visa U.S.A., Inc.\n\n## What’s New\n\nFeb 19, 2025\n\nVersion 1.0.78\n\nBug fixes and improvements\n\n## Ratings and Reviews\n\n4.9 out of 5\n\n3.6K Ratings\n\n### I was nervous\n\n> I did a quick application online .. was approved.. scheduled virtual notary.. signed documents… funded 3 days later…. Took advantage of a cash out offer to lower my rate … paid all my credit cards in full and cut my the interest rate on my debt in half … it was super easy and just makes sense … got hit with a lot of unforeseen expenses this year so no choice but to pay but might as well save the interest and now just one easy payment.. thank you Aven!! 5 stars\n\n### From beginning to end - Fantastic\n\n> I was amazed how easy and fast I was able to secure a loan. Truly revolutionary in the lending process and no hassle with long waits prior to funding. I give the a 10 out of 10 in ease of operations and streamlining the lending process highly recommend. I just applied last Wednesday and the funds are on my account less than a week later including a weekend.\n\n### AVEN is the real thing.\n\n> Been with AVEN a few months now and they are delivering on all promises. Easy process to get on board, simple access to funds, robust credit limits. Way superior to complex bank HELOCs - like having a credit card simplicity with home equity back-up features. Best of both worlds.\n\n## App Privacy\n\nThe developer, Aven Financial, indicated that the app’s privacy practices may include handling of data as described below. For more information, see the [developer’s privacy policy](https://aven.com/privacy).\n\n### Data Used to Track You\n\nThe following data may be used to track you across apps and websites owned by other companies:\n\n- Identifiers\n\n### Data Linked to You\n\nThe following data may be collected and linked to your identity:\n\n- Usage Data\n- Diagnostics\n\n### Data Not Linked to You\n\nThe following data may be collected but it is not linked to your identity:\n\n- Identifiers\n\nPrivacy practices may vary, for example, based on the features you use or your age. [Learn More](https://apps.apple.com/story/id1538632801)\n\n## Information\n\nSellerAVEN FINANCIAL TECHNOLOGIES, INC\n\nSize23.8 MB\n\nCategory[Finance](https://itunes.apple.com/us/genre/id6015)\n\nCompatibilityiPhoneRequires iOS 14.0 or later.iPod touchRequires iOS 14.0 or later.Apple VisionRequires visionOS 1.0 or later.\n\nLanguages\n\nEnglish, Spanish\n\nCopyright© 2023 Aven Financial Technologies Inc.\n\nPriceFree\n\n- [Developer Website](https://aven.com)\n- [App Support](https://aven.com/support)\n- [Privacy Policy](https://aven.com/privacy)\n\n- [Developer Website](https://aven.com)\n- [App Support](https://aven.com/support)\n- [Privacy Policy](https://aven.com/privacy)\n\n## More By This Developer\n\n## You Might Also Like"
-        },
-        {
           "id": "https://play.google.com/store/apps/details?hl=en_US&id=com.aven.app",
           "title": "Aven Card - Apps on Google Play",
           "url": "https://play.google.com/store/apps/details?hl=en_US&id=com.aven.app",
@@ -64,10 +56,10 @@
     }
   ],
   "costDollars": {
-    "total": 0.006,
+    "total": 0.005,
     "contents": {
-      "text": 0.006
+      "text": 0.005
     }
   },
-  "searchTime": 4166.823717996478
+  "searchTime": 4184.092470999807
 }
