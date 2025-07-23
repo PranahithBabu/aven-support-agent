@@ -1,4 +1,5 @@
 "use client";
+require('dotenv').config({ path: '.env.local' });
 import { useState, useRef, useEffect } from "react";
 import Navbar from "./Navbar";
 
@@ -92,11 +93,11 @@ export default function Home() {
     setInput("");
     setIsTyping(true);
     try {
-      const res = await fetch("/api/ask", {
+      const res = await fetch(`${process.env.BACKEND_API_URL}/query`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: text }),
-      });
+        body: JSON.stringify({ question: text }),
+      });      
       if (!res.ok) throw new Error("Failed to get response");
       const data = await res.json();
       setMessages((msgs) => [
