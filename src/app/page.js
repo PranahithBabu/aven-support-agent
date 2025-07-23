@@ -1,5 +1,4 @@
 "use client";
-require('dotenv').config({ path: '.env.local' });
 import { useState, useRef, useEffect } from "react";
 import Navbar from "./Navbar";
 
@@ -93,7 +92,7 @@ export default function Home() {
     setInput("");
     setIsTyping(true);
     try {
-      const res = await fetch(`${process.env.BACKEND_API_URL}/query`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/query`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: text }),

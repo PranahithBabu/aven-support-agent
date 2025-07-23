@@ -1,25 +1,31 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-import pinecone
-import requests
 import os
+import requests
 from sentence_transformers import SentenceTransformer
+from pinecone import Pinecone
+from dotenv import load_dotenv
 
-# === CONFIG ===
+# To load environment variables from .env file
+load_dotenv()
+
+# Configuration details
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 PINECONE_ENV = os.getenv("PINECONE_ENVIRONMENT")
 PINECONE_INDEX_NAME = os.getenv("PINECONE_INDEX")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 MODEL_NAME = os.getenv("GROQ_MODEL_NAME")
 
-# === Init ===
-pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
-index = pinecone.Index(PINECONE_INDEX_NAME)
+# Initializing Pinecone and SentenceTransformer
+pc = Pinecone(api_key=PINECONE_API_KEY)
+index = pc.Index(PINECONE_INDEX_NAME)
 encoder = SentenceTransformer("all-MiniLM-L6-v2")
 
+# FastAPI app initialization
 app = FastAPI()
 
+# Ensuring request flow to the frontend without any CORS middleware restrictions
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
@@ -28,6 +34,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Building prompt to pass to the LLM along with the context and user input
 def build_prompt(contexts, user_question):
     context_text = "\n\n".join(
         f"Q: {m['metadata']['question']}\nA: {m['metadata']['answer']}" for m in contexts
@@ -44,11 +51,13 @@ Use the following FAQs to answer the user’s question in a clear, friendly, and
 
 ### Answer (Keep it short and to the point):"""
 
+# Querying Pinecone for the most relevant data
 def query_pinecone(query, top_k=5):
     vec = encoder.encode(query).tolist()
     res = index.query(vector=vec, top_k=top_k, include_metadata=True)
     return res["matches"]
 
+# Asking the LLM for the answer
 def ask_groq_llm(prompt):
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
@@ -70,6 +79,7 @@ def ask_groq_llm(prompt):
         print("📨 Raw response:", response.text)
         return "Sorry, I couldn't get a response from the AI."
 
+# Querying the LLM for the answer
 @app.post("/query")
 async def query(request: Request):
     body = await request.json()
