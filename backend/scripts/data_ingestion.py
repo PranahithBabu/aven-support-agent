@@ -43,7 +43,7 @@ faqs = extract_faqs_from_pdf(PDF_PATH)
 with open(OUTPUT_PATH, 'w') as f:
     json.dump(faqs, f, indent=2)
 
-print(f"\u2705 Extracted {len(faqs)} FAQs to {OUTPUT_PATH}")
+print(f"Extracted {len(faqs)} FAQs to {OUTPUT_PATH}")
 
 pc = Pinecone(api_key=PINECONE_API_KEY)
 index = pc.Index(INDEX_NAME)
@@ -55,4 +55,4 @@ vectors = [
 ]
 
 index.upsert(vectors=vectors)
-print(f"\u2705 Uploaded {len(vectors)} vectors to Pinecone index '{INDEX_NAME}'")
+print(f"Uploaded {len(vectors)} vectors to Pinecone index '{INDEX_NAME}'")
