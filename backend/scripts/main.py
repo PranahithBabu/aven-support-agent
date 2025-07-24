@@ -77,7 +77,7 @@ def ask_groq_llm(prompt):
     except Exception as e:
         print("LLM error:", e)
         print("Raw response:", response.text)
-        return "Sorry, I couldn't get a response from the AI."
+        return "Sorry, I had a technical issue. Could you try again?"
 
 # Querying the LLM for the answer
 @app.post("/query")
@@ -90,7 +90,7 @@ async def query(request: Request):
 
     matches = query_pinecone(user_question)
     if not matches:
-        return JSONResponse(content={"answer": "Sorry, I couldn’t find anything relevant in the FAQ."})
+        return JSONResponse(content={"answer": "Sorry, I couldn’t find anything relevant. Could you try re-phrasing your question?"})
 
     prompt = build_prompt(matches, user_question)
     answer = ask_groq_llm(prompt)
