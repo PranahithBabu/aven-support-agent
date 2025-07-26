@@ -1,0 +1,7 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black circular background -->
+  <circle cx="16" cy="16" r="16" fill="black"/>
+  
+  <!-- White "A" letter - more precise design -->
+  <path d="M16 5L23 21H21L19.5 17H12.5L11 21H9L16 5ZM13 15H19L16 8L13 15Z" fill="white"/>
+</svg> 

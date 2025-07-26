@@ -1,3 +1,6 @@
+// This is the JavaScript API for the Aven AI assistant.
+// It is used to answer questions about the Aven credit-building products and services.
+// It is not production-ready. This can be ignored.
 import { NextResponse } from 'next/server';
 import { PineconeClient } from 'pinecone-client';
 import { GoogleGenerativeAI } from '@google/generative-ai';

@@ -1,3 +1,4 @@
+// This is the integration page for the Vapi AI assistant. It is a test version of the Vapi AI assistant, and not the final version. Ignore this file for now.
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -7,10 +8,9 @@ export default function VapiPage() {
   const [callActive, setCallActive] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // Helper to add logs
   const addLog = (msg) => setLogs((prev) => [...prev, msg]);
 
-  // Start Vapi and set up event listeners
+  // Starting Vapi and setting up event listeners
   useEffect(() => {
     if (typeof window === "undefined") return;
     let Vapi;
@@ -20,7 +20,7 @@ export default function VapiPage() {
       Vapi = mod.default;
       vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_PUBLIC_KEY);
       vapiRef.current = vapi;
-      // Listen for events
+      // Listening for events
       vapi.on("call-start", () => {
         addLog("Call started");
         setCallActive(true);
@@ -33,13 +33,13 @@ export default function VapiPage() {
         if (message.type === "transcript" && message.role === "user") {
           addLog(`User: ${message.transcript}`);
           setIsProcessing(true);
-          // Detect callback intent
+          // Detecting callback intent
           if (/callback|call back|schedule.*call|phone call|call me/i.test(message.transcript)) {
             const confirmMsg = "Callback scheduled! Our team will contact you soon.";
             addLog(`Aven: ${confirmMsg}`);
             vapi.speak(confirmMsg);
             setIsProcessing(false);
-            return; // Do not send to RAG API
+            return;
           }
           // Send transcript to backend API
           try {
@@ -51,7 +51,7 @@ export default function VapiPage() {
             const data = await res.json();
             const answer = data.answer || "Sorry, I couldn't find an answer to your question.";
             addLog(`Aven: ${answer}`);
-            // Speak the answer using Vapi
+            // Speaking the answer using Vapi
             vapi.speak(answer);
           } catch (err) {
             addLog("Aven: Sorry, something went wrong.");
@@ -71,7 +71,7 @@ export default function VapiPage() {
 
   const handleStart = () => {
     if (vapiRef.current) {
-      vapiRef.current.start("cb036b7f-e4ae-4bc8-a016-1c670193526b");
+      vapiRef.current.start(process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID);
     }
   };
   const handleStop = () => {

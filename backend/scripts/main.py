@@ -10,12 +10,13 @@ from dotenv import load_dotenv
 # To load environment variables from .env file
 load_dotenv()
 
-# Configuration details
+# Configuring environment variables
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 PINECONE_ENV = os.getenv("PINECONE_ENVIRONMENT")
 PINECONE_INDEX_NAME = os.getenv("PINECONE_INDEX")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 MODEL_NAME = os.getenv("GROQ_MODEL_NAME")
+FRONTEND_URL = os.getenv("FRONTEND_URL")
 
 # Initializing Pinecone and SentenceTransformer
 pc = Pinecone(api_key=PINECONE_API_KEY)
@@ -28,7 +29,7 @@ app = FastAPI()
 # Ensuring request flow to the frontend without any CORS middleware restrictions
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[FRONTEND_URL],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
