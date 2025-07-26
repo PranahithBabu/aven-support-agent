@@ -1,3 +1,6 @@
+// This is the main page for the Aven AI assistant.
+// It is the main page that the user sees when they visit the Aven AI assistant.
+// It interacts with the backend API to answer questions about the Aven credit-building products and services.
 "use client";
 import { useState, useRef, useEffect } from "react";
 import Navbar from "./Navbar";
