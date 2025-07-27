@@ -13,17 +13,14 @@ An AI-powered customer support assistant that provides fast, accurate, and frien
 
 ---
 
-## 🔍 Evaluation
-A set of 50 real-world user queries is included to evaluate:
+## 🎥 Demonstration
+[![Video Title](https://img.youtube.com/vi/4xwOY64ce7s/0.jpg)](https://www.youtube.com/watch?v=4xwOY64ce7s)
 
-- Response accuracy
-- Citation correctness
-- Helpfulness score
-
-Each query is scored from 1–5 in all 3 categories.
+---
 
 ## 💡 Example Queries
 - “How do I activate my Aven card?”
 - “What is the payoff quote calculation method?”
 - “Where can I use my Aven card?”
-- “Can I schedule a meeting with Aven support for tomorrow?”
+- “What is my account balance?”
+- “Can you give me financial advice?”
